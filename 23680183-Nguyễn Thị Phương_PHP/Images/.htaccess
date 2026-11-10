@@ -1,0 +1,5 @@
+# Thư mục chứa ảnh tải lên: KHÔNG cho chạy bất kỳ file PHP nào ở đây (phòng trường hợp lọt file độc)
+<FilesMatch "\.(php|phtml|phar|php\d)$">
+    Require all denied
+</FilesMatch>
+Options -Indexes

@@ -1,0 +1,1522 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+:root {
+    --primary: #3E2723;
+    /* Nâu chocolate ấm áp */
+    --primary-light: #5C4033;
+    /* Nâu chocolate sáng */
+    --accent: #D2691E;
+    /* Cam caramel kích thích vị giác */
+    --accent-hover: #B85311;
+    --butter: #F4A460;
+    /* Vàng kem bơ */
+    --bg-main: #FDFBF7;
+    /* Trắng kem ấm cúng */
+    --card-bg: #FFFFFF;
+    --text-main: #3E2723;
+    --text-muted: #795548;
+    --border-color: #EFEBE9;
+    --shadow-soft: 0 4px 20px rgba(62, 39, 35, 0.08);
+    --shadow-hover: 0 10px 25px rgba(210, 105, 30, 0.18);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* =====================================================
+   HEADER & NAVIGATION
+===================================================== */
+.top-bar {
+    background: var(--primary);
+    color: #FFE082;
+    font-size: 13px;
+    text-align: center;
+    padding: 7px 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.header-nav {
+    background: var(--card-bg);
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: 0 2px 12px rgba(62, 39, 35, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.logo-icon {
+    width: 44px;
+    height: 44px;
+    background: #FFF3E0;
+    color: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 2px 8px rgba(210, 105, 30, 0.15);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.brand-slogan {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    transition: color 0.2s;
+    padding: 6px 0;
+    position: relative;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: var(--accent);
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* =====================================================
+   HEADER RIGHT & PILL BUTTONS (GIỎ HÀNG & TÀI KHOẢN VIỀN BO TRÒN)
+===================================================== */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.auth-pill-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Nút tài khoản dạng viên thuốc tròn viền bo cong chuẩn như giỏ hàng */
+.auth-pill-btn {
+    background: #FFF8F0;
+    border: 1.5px solid #FFE0B2;
+    color: var(--accent);
+    padding: 8px 16px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(210, 105, 30, 0.06);
+    white-space: nowrap;
+}
+
+.auth-pill-btn:hover {
+    background: var(--accent);
+    color: #FFFFFF !important;
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(210, 105, 30, 0.25);
+    transform: translateY(-1px);
+}
+
+.auth-pill-btn i {
+    font-size: 15px;
+}
+
+/* Nút Quản trị viên (nền tối sang trọng) */
+.auth-pill-admin {
+    background: #3E2723;
+    color: #FFE082 !important;
+    border-color: #5D4037;
+}
+
+.auth-pill-admin:hover {
+    background: #271613;
+    color: #FFF8E1 !important;
+    border-color: #271613;
+}
+
+/* Thẻ tên người dùng */
+.auth-pill-user {
+    background: #FEF3C7;
+    border-color: #FDE68A;
+    color: #78350F;
+    cursor: default;
+}
+
+.auth-pill-user:hover {
+    background: #FEF3C7;
+    color: #78350F !important;
+    border-color: #FDE68A;
+    transform: none;
+    box-shadow: 0 2px 6px rgba(210, 105, 30, 0.06);
+}
+
+/* Nút Đăng xuất nhỏ gọn */
+.auth-pill-logout {
+    padding: 8px 14px;
+    color: #94A3B8;
+    background: #F8FAFC;
+    border-color: #E2E8F0;
+}
+
+.auth-pill-logout:hover {
+    background: #EF4444;
+    border-color: #EF4444;
+    color: #FFFFFF !important;
+}
+
+.cart-badge-btn {
+    background: #FFF3E0;
+    border: 1.5px solid #FFE0B2;
+    color: var(--accent);
+    padding: 8px 18px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(210, 105, 30, 0.06);
+    white-space: nowrap;
+}
+
+.cart-badge-btn:hover {
+    background: var(--accent);
+    color: #FFFFFF;
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(210, 105, 30, 0.25);
+    transform: translateY(-1px);
+}
+
+.cart-count {
+    background: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 7px;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.cart-badge-btn:hover .cart-count {
+    background: #fff;
+    color: var(--accent);
+}
+
+/* =====================================================
+   HERO BANNER
+===================================================== */
+.hero-banner {
+    background: linear-gradient(135deg, #FBE9E7 0%, #FFF8E1 50%, #EFEBE9 100%);
+    border-radius: var(--radius-lg);
+    max-width: 1240px;
+    margin: 24px auto 36px;
+    padding: 50px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(92, 64, 51, 0.06);
+    border: 1px solid #FFE0B2;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-banner::before {
+    content: '🍰';
+    position: absolute;
+    right: 30px;
+    bottom: -20px;
+    font-size: 160px;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 640px;
+    z-index: 1;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFF3E0;
+    color: var(--accent);
+    border: 1px solid #FFE0B2;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--primary);
+    margin: 0 0 16px;
+}
+
+.hero-highlight {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.hero-desc {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin: 0 0 24px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.nut {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.nut-hero {
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 16px;
+    box-shadow: 0 6px 16px rgba(210, 105, 30, 0.3);
+}
+
+.nut-hero:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(210, 105, 30, 0.4);
+}
+
+.nut-hero-outline {
+    background: #fff;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+.nut-hero-outline:hover {
+    background: #F5EBE6;
+}
+
+.hero-decor {
+    z-index: 1;
+}
+
+.hero-badge-float {
+    background: #fff;
+    padding: 18px 24px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 25px rgba(62, 39, 35, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid #FFE0B2;
+}
+
+.hero-badge-float i {
+    font-size: 32px;
+    color: var(--accent);
+}
+
+.hero-badge-float b {
+    display: block;
+    color: var(--primary);
+    font-size: 16px;
+}
+
+.hero-badge-float span {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* =====================================================
+   CỬA HÀNG VÀ DANH SÁCH SẢN PHẨM (GRID)
+===================================================== */
+.cua-hang-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+}
+
+.cua-hang {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+}
+
+.vung-san-pham {
+    flex: 1;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 14px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--primary);
+    margin: 0;
+}
+
+.section-sub {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 4px 0 0;
+}
+
+.tag-pill {
+    background: var(--accent);
+    color: #fff;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* PRODUCT GRID */
+.danh-sach {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 22px;
+}
+
+.the-san-pham {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.the-san-pham:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: #FFE0B2;
+}
+
+/* Hiệu ứng phóng to nhẹ ảnh sản phẩm khi hover */
+.khung-anh-sp {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #FAF7F2;
+    margin-bottom: 10px;
+}
+
+.khung-anh-sp img.anh-chinh {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.the-san-pham:hover .khung-anh-sp img.anh-chinh {
+    transform: scale(1.06);
+}
+
+.badge-tag {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(210, 105, 30, 0.9);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* Album ảnh phụ (Nhiều ảnh cho 1 sản phẩm) */
+.album-anh-phu {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    min-height: 38px;
+    align-items: center;
+}
+
+.album-anh-phu.empty {
+    min-height: 10px;
+}
+
+.thumb-anh {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1.5px solid #E0E0E0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.thumb-anh:hover,
+.thumb-anh.active {
+    border-color: var(--accent);
+    transform: scale(1.1);
+    box-shadow: 0 2px 6px rgba(210, 105, 30, 0.25);
+}
+
+.thong-tin-sp {
+    flex: 1;
+}
+
+.ma-sp {
+    font-size: 11px;
+    font-weight: 700;
+    color: #A1887F;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.the-san-pham .ten {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 4px 0 6px;
+    line-height: 1.35;
+    min-height: 44px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.gia-sp {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.don-vi {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.thao-tac-sp {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.chon-so-luong {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #D7CCC8;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #FAF7F2;
+}
+
+.chon-so-luong button {
+    background: none;
+    border: none;
+    width: 28px;
+    height: 34px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--primary);
+    transition: background 0.15s;
+}
+
+.chon-so-luong button:hover {
+    background: #EFEBE9;
+}
+
+.chon-so-luong .so-luong {
+    width: 26px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.nut-chinh {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.nut-chinh:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.nut-them {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+/* =====================================================
+   GIỎ HÀNG (STICKY ASIDE)
+===================================================== */
+.gio-hang {
+    width: 330px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 90px;
+    background: var(--card-bg);
+    border: 2px solid #FFE0B2;
+    border-radius: var(--radius-md);
+    padding: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+.gio-hang-header {
+    margin-bottom: 14px;
+    border-bottom: 1.5px dashed var(--border-color);
+    padding-bottom: 10px;
+}
+
+.gio-hang-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gio-hang-subtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.gio-hang ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+.gio-hang li {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+}
+
+.gio-hang li span:first-child {
+    flex: 1;
+    font-weight: 600;
+}
+
+.nut-xoa {
+    background: #FFEBEE;
+    color: #D32F2F;
+    border: none;
+    border-radius: 4px;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.nut-xoa:hover {
+    background: #D32F2F;
+    color: #fff;
+}
+
+.gio-hang-trong {
+    text-align: center;
+    padding: 28px 10px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.icon-trong {
+    font-size: 36px;
+    color: #D7CCC8;
+    margin-bottom: 8px;
+}
+
+.gio-hang-footer {
+    margin-top: 16px;
+    border-top: 1.5px dashed var(--border-color);
+    padding-top: 14px;
+}
+
+.dong-tong-tien {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.tong-tien {
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.nut-rong {
+    width: 100%;
+}
+
+.nut-mua {
+    padding: 12px;
+    font-size: 15px;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(210, 105, 30, 0.25);
+}
+
+/* =====================================================
+   HỘP THOẠI XÁC NHẬN MUA HÀNG (MODAL)
+===================================================== */
+.hop-thoai {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 20, 15, 0.65);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+.hop-thoai.hien {
+    display: block;
+}
+
+.hop-thoai-noi-dung {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    max-width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 14px;
+}
+
+.modal-icon {
+    font-size: 32px;
+    color: var(--accent);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 22px;
+    color: var(--primary);
+}
+
+.modal-sub {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.nut-dong {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #9E9E9E;
+    cursor: pointer;
+}
+
+.tom-tat-khung {
+    background: #FFF8E1;
+    border: 1px solid #FFE082;
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.tom-tat-khung h4 {
+    margin: 0 0 8px;
+    color: #8D6E63;
+}
+
+.form-giao-hang label {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.bat-buoc {
+    color: #D32F2F;
+}
+
+.form-giao-hang input[type=text],
+.form-giao-hang input[type=tel],
+.form-giao-hang textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #D7CCC8;
+    border-radius: var(--radius-sm);
+    margin-top: 4px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.form-giao-hang input:focus,
+.form-giao-hang textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.15);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.nut-phu {
+    background: #EFEBE9;
+    color: var(--primary);
+}
+
+.nut-phu:hover {
+    background: #D7CCC8;
+}
+
+.nut-xac-nhan {
+    flex: 1;
+    justify-content: center;
+    padding: 12px;
+}
+
+/* =====================================================
+   GIAO DIỆN ADMIN DASHBOARD (SIDEBAR NỀN TỐI)
+===================================================== */
+.admin-body {
+    background: #F4F6F9;
+    margin: 0;
+}
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.admin-sidebar {
+    width: 260px;
+    background: #1E293B;
+    /* Nền tối chuyên nghiệp */
+    color: #CBD5E1;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.06);
+}
+
+.sidebar-brand {
+    padding: 22px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #334155;
+    background: #0F172A;
+}
+
+.sidebar-brand i {
+    font-size: 26px;
+    color: #F59E0B;
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #F8FAFC;
+    display: block;
+}
+
+.brand-subtitle {
+    font-size: 11px;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar-menu {
+    padding: 20px 14px;
+    flex: 1;
+}
+
+.menu-heading {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748B;
+    letter-spacing: 1px;
+    margin: 16px 10px 8px;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 16px;
+    border-radius: 8px;
+    color: #94A3B8;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    transition: all 0.2s;
+}
+
+.sidebar-menu a:hover {
+    background: #334155;
+    color: #F8FAFC;
+}
+
+.sidebar-menu a.active {
+    background: #D2691E;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(210, 105, 30, 0.35);
+}
+
+.menu-logout {
+    margin-top: 10px;
+    color: #F87171 !important;
+}
+
+.sidebar-user {
+    padding: 16px 20px;
+    border-top: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #0F172A;
+}
+
+.avatar-icon {
+    font-size: 34px;
+    color: #F59E0B;
+}
+
+.user-name {
+    font-weight: 700;
+    color: #F8FAFC;
+    font-size: 14px;
+    display: block;
+}
+
+.user-role {
+    font-size: 11px;
+    color: #10B981;
+}
+
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.admin-topbar {
+    background: #FFFFFF;
+    padding: 16px 32px;
+    border-bottom: 1px solid #E2E8F0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-topbar h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #0F172A;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.time-badge {
+    font-size: 13px;
+    color: #64748B;
+    background: #F1F5F9;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.admin-content-area {
+    padding: 30px 32px;
+    flex: 1;
+}
+
+/* =====================================================
+   BẢNG QUẢN TRỊ & TRẠNG THÁI (STATUS BADGES)
+===================================================== */
+.bang {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid #E2E8F0;
+}
+
+.bang th {
+    background: #F8FAFC;
+    color: #475569;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 16px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.bang td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.bang tr:last-child td {
+    border-bottom: none;
+}
+
+.bang tr:hover td {
+    background-color: #F8FAFC;
+}
+
+/* Nhãn trạng thái - CÓ TRẠNG THÁI HOÀN HÀNG */
+.trang-thai {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.trang-thai-cho_xac_nhan {
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+}
+
+.trang-thai-da_xac_nhan {
+    background: #E0F2FE;
+    color: #0369A1;
+    border: 1px solid #BAE6FD;
+}
+
+.trang-thai-dang_giao {
+    background: #EDE9FE;
+    color: #6D28D9;
+    border: 1px solid #DDD6FE;
+}
+
+.trang-thai-da_giao {
+    background: #DCFCE7;
+    color: #15803D;
+    border: 1px solid #BBF7D0;
+}
+
+.trang-thai-hoan_hang {
+    background: #FFEDD5;
+    color: #C2410C;
+    border: 1px solid #FED7AA;
+}
+
+/* Hoàn hàng */
+.trang-thai-da_huy {
+    background: #FEE2E2;
+    color: #B91C1C;
+    border: 1px solid #FECACA;
+}
+
+.trang-thai-khong-ro {
+    background: #F3F4F6;
+    color: #4B5563;
+}
+
+/* Thẻ thống kê */
+.the-thong-ke {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.the-thong-ke div {
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.the-thong-ke span {
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.the-thong-ke b {
+    font-size: 26px;
+    color: #0F172A;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Tab lọc */
+.tab-loc {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab-loc a {
+    padding: 7px 16px;
+    background: #fff;
+    border: 1px solid #CBD5E1;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.tab-loc a.dang-chon {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+/* Footer tiệm bánh */
+.footer-bakery {
+    background: #2D1E18;
+    color: #D7CCC8;
+    padding: 50px 24px 24px;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 36px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #4E342E;
+}
+
+.footer-col h3,
+.footer-col h4 {
+    color: #FFE082;
+    margin-top: 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 24px;
+    font-size: 13px;
+    color: #8D6E63;
+}
+
+/* Thao tác trang */
+.noi-dung {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 30px 24px;
+}
+
+.form-ngang {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.form-ngang input {
+    padding: 10px 14px;
+    border: 1px solid #CBD5E1;
+    border-radius: var(--radius-sm);
+    min-width: 280px;
+}
+
+.anh-nho {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+}
+
+.thong-bao-ok {
+    background: #DCFCE7;
+    color: #15803D;
+    border: 1px solid #BBF7D0;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+}
+
+.thong-bao-loi {
+    background: #FEE2E2;
+    color: #B91C1C;
+    border: 1px solid #FECACA;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 24px;
+    }
+
+    .hero-decor {
+        margin-top: 20px;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .cua-hang {
+        flex-direction: column;
+    }
+
+    .gio-hang {
+        width: 100%;
+        position: static;
+    }
+
+    .admin-layout {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+    }
+}
+
+/* =====================================================
+   GIAO DIỆN ĐĂNG NHẬP / ĐĂNG KÝ HIỆN ĐẠI (MODERN AUTH UI)
+===================================================== */
+.auth-page-container {
+    min-height: calc(100vh - 220px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+    background: radial-gradient(circle at top, #FFF9F2 0%, #FBF6EF 100%);
+}
+
+.auth-modern-card {
+    width: 100%;
+    max-width: 440px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 36px 32px;
+    box-shadow: 0 10px 40px rgba(62, 39, 35, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+    border: 1px solid #F1E7DD;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-header-top {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.auth-icon-badge {
+    width: 64px;
+    height: 64px;
+    background: #FFF3E0;
+    color: var(--accent);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(210, 105, 30, 0.15);
+}
+
+.auth-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+}
+
+.auth-subtitle {
+    margin: 6px 0 0;
+    font-size: 13.5px;
+    color: var(--text-muted);
+}
+
+/* Tab chuyển đổi giữa Đăng nhập và Đăng ký */
+.auth-tab-switch {
+    display: flex;
+    background: #F5EFE6;
+    padding: 4px;
+    border-radius: 28px;
+    margin-bottom: 24px;
+    gap: 4px;
+}
+
+.auth-tab-item {
+    flex: 1;
+    text-align: center;
+    padding: 9px 0;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-muted);
+    border-radius: 24px;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.auth-tab-item.active {
+    background: #FFFFFF;
+    color: var(--accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.auth-tab-item:hover:not(.active) {
+    color: var(--primary);
+}
+
+/* Các nhóm trường nhập liệu chuẩn hiện đại (Display Block) */
+.auth-form-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.auth-form-group label {
+    display: block !important;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #4A3525;
+    margin-bottom: 6px;
+}
+
+.auth-form-group label .bat-buoc {
+    color: #E53E3E;
+}
+
+.auth-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.auth-input-wrapper i.field-icon {
+    position: absolute;
+    left: 14px;
+    color: #A89078;
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.auth-input-wrapper input {
+    display: block !important;
+    width: 100% !important;
+    padding: 12px 14px 12px 42px !important;
+    border: 1.5px solid #E7DFD5 !important;
+    border-radius: 10px !important;
+    font-size: 14.5px !important;
+    background: #FCFAF7 !important;
+    color: var(--primary) !important;
+    font-family: inherit !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+}
+
+.auth-input-wrapper input:focus {
+    border-color: var(--accent) !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 0 0 3.5px rgba(210, 105, 30, 0.15) !important;
+    outline: none !important;
+}
+
+.auth-help-note {
+    display: block;
+    font-size: 12px;
+    color: #8C7868;
+    margin-top: 5px;
+}
+
+/* Nút Submit chính */
+.auth-submit-btn {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 13px 20px !important;
+    margin-top: 24px !important;
+    background: linear-gradient(135deg, #D2691E 0%, #B85311 100%) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-size: 15.5px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 14px rgba(210, 105, 30, 0.3) !important;
+    transition: all 0.25s ease !important;
+}
+
+.auth-submit-btn:hover {
+    transform: translateY(-1.5px) !important;
+    box-shadow: 0 6px 20px rgba(210, 105, 30, 0.4) !important;
+}
+
+.auth-submit-btn:active {
+    transform: translateY(0) !important;
+}
+
+/* Hộp tài khoản demo hỗ trợ chấm bài */
+.auth-demo-box {
+    margin-top: 24px;
+    padding: 12px 14px;
+    background: #FFF8E7;
+    border: 1px dashed #F59E0B;
+    border-radius: 10px;
+    font-size: 12.5px;
+    color: #78350F;
+    line-height: 1.5;
+}
+
+.auth-demo-box b {
+    color: #92400E;
+}
